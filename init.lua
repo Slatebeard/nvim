@@ -6,6 +6,10 @@ require 'core.keymaps' -- Load general keymaps
 vim.opt.shortmess:append "I"  -- Hides the welcome message
 vim.cmd "autocmd VimEnter * enew"  -- Opens a blank buffer on startup
 vim.opt.laststatus = 0
+
+-- Load custom autocommands
+require 'core.autocmd' -- Add this line to load autocmd.lua
+
 -- Install package manager
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
