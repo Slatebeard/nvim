@@ -36,14 +36,14 @@ require('lazy').setup({
       })
       vim.cmd[[colorscheme tokyonight]] -- Activate colorscheme
     end,
-  }, 
-  
+  },
+
   -- Load other plugins
   require 'plugins.bufferline',
   require 'plugins.telescope',
   require 'plugins.treesitter',
-  -- require 'plugins.lsp',
-  -- require 'plugins.autocompletion',
+  require 'plugins.lsp',
+  require 'plugins.autocompletion',
   -- require 'plugins.none-ls',
   require 'plugins.lualine',
   require 'plugins.neo-tree',
@@ -62,7 +62,7 @@ require('lazy').setup({
   require 'plugins.which-key',
   --require 'plugins.slimline'
 }, {
-  rocks = { enabled = false }, -- Disable hererocks
+  rocks = { enabled = true }, -- Disable hererocks
   ui = {
     -- If you have a Nerd Font, set icons to an empty table which will use the
     -- default lazy.nvim defined Nerd Font icons otherwise define a unicode icons table
@@ -106,4 +106,9 @@ end
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+
+-- BuildJar
+vim.cmd([[
+  command! BuildJar execute '!javac -d bin $(find src -name "*.java") && jar cfe demo.jar $(basename $(find src -name "Main.java" | sed "s/\\.java$//")) -C bin .'
+]])
 

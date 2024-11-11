@@ -105,3 +105,4 @@ vim.keymap.set('n', '<leader>q', ':q<CR>', { noremap = true, silent = false, des
 
 --CUSTOM KEYS
 vim.opt.laststatus = 0
+vim.api.nvim_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', { noremap = true, silent = true })
