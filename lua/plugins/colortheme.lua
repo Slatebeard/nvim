@@ -30,6 +30,7 @@ return {
       vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
       vim.api.nvim_set_hl(0, "LineNr", { bg = "NONE" })
       vim.api.nvim_set_hl(0, "SignColumn", { bg = "NONE" })
-      vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "NONE" })  
+      vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "NONE" })
+      vim.api.nvim_set_hl(0, "FidgetNormal", { bg = "none", fg = "#a9b1d6" })
     end
   }
