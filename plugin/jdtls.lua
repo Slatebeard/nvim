@@ -82,11 +82,10 @@ local function get_jdtls_paths()
     -- You can find the list here:
     -- https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
     {
-      name = "JavaSE-21",
-      path = vim.fn.expand("/usr/"),
-    },
-  }
-
+      name = "openjdk-21",
+      path = "/usr/lib/jvm/openjdk-21/",
+  },
+}
   cache_vars.paths = path
 
   return path

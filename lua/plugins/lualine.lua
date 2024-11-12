@@ -24,8 +24,6 @@ return {
 
     -- Define themes table and include Tokyo Night
     local themes = {
-      onedark = onedark_theme,
-      nord = 'nord',
       tokyonight = tokyonight_theme,
     }
 
@@ -71,8 +69,8 @@ return {
       options = {
         icons_enabled = true,
         theme = themes[env_var_nvim_theme],
-        section_separators = { left = '', right = '' },
-        component_separators = { left = '', right = '' },
+        --section_separators = { left = '', right = '' },
+        --component_separators = { left = '', right = '' },
         disabled_filetypes = { 'alpha', 'neo-tree', 'Avante' },
         always_divide_middle = true,
       },

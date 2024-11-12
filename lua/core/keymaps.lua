@@ -28,9 +28,6 @@ vim.keymap.set('n', '<leader>sn', '<cmd>noautocmd w <CR>', { noremap = true, sil
 -- Quit file
 vim.keymap.set('n', '<C-q>', '<cmd> q <CR>', { noremap = true, silent = true, desc = "quit file" })
 
--- Delete single character without copying into register
-vim.keymap.set('n', 'x', '"_x', { noremap = true, silent = true, desc = "delete character without yanking" })
-
 -- Vertical scroll and center
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { noremap = true, silent = true, desc = "scroll down and center" })
 vim.keymap.set('n', '<C-u>', '<C-u>zz', { noremap = true, silent = true, desc = "scroll up and center" })
@@ -59,7 +56,7 @@ vim.keymap.set('n', '<leader>-', '<C-x>', { noremap = true, silent = true, desc 
 vim.keymap.set('n', '<leader>v', '<C-w>v', { noremap = true, silent = true, desc = "split window vertically" })
 vim.keymap.set('n', '<leader>h', '<C-w>s', { noremap = true, silent = true, desc = "split window horizontally" })
 vim.keymap.set('n', '<leader>se', '<C-w>=', { noremap = true, silent = true, desc = "equalize split windows" })
-vim.keymap.set('n', '<leader>xs', ':close<CR>', { noremap = true, silent = true, desc = "close split window" })
+-- vim.keymap.set('n', '<leader>xs', ':close<CR>', { noremap = true, silent = true, desc = "close split window" })
 
 -- Navigate between splits
 vim.keymap.set('n', '<C-k>', ':wincmd k<CR>', { noremap = true, silent = true, desc = "move to upper split" })
