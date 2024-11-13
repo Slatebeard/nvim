@@ -5,7 +5,7 @@ require 'core.keymaps' -- Load general keymaps
 -- CUSTOM SETTINGS
 -- Disable the welcome message and start with an empty buffer
 vim.opt.shortmess:append "I"  -- Hides the welcome message
-vim.cmd "autocmd VimEnter * enew"  -- Opens a blank buffer on startup
+-- vim.cmd "autocmd VimEnter * enew"  -- Opens a blank buffer on startup
 vim.opt.laststatus = 0
 vim.opt.guicursor = ""
 -- Set cursor shape for each mode
@@ -65,7 +65,7 @@ require('lazy').setup({
   -- require 'plugins.alpha',
   -- require 'plugins.indent-blankline',
   -- require 'plugins.lazygit',
-  -- require 'plugins.comment',
+  require 'plugins.comment',
   -- require 'plugins.debug',
   -- require 'plugins.gitsigns',
   -- require 'plugins.database',
