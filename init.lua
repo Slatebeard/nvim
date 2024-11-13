@@ -1,6 +1,7 @@
 require 'core.options' -- Load general options
 require 'core.keymaps' -- Load general keymaps
 -- require 'core.snippets' -- Custom code snippets
+
 -- CUSTOM SETTINGS
 -- Disable the welcome message and start with an empty buffer
 vim.opt.shortmess:append "I"  -- Hides the welcome message
@@ -30,52 +31,27 @@ vim.opt.rtp:prepend(lazypath)
 -- Setup plugins
 require('lazy').setup({
   -- Tokyo Night colorscheme
- {
+  {
     'folke/tokyonight.nvim',
+    priority = 1000,  -- Set a high priority to ensure it loads last
     config = function()
       require('tokyonight').setup({
-        style = 'night', -- You can also set 'storm', 'day', 'moon'
-        transparent = true, -- Enable transparency
+        style = 'night',
+        transparent = true,
       })
-
-      -- Apply transparency settings to various highlight groups
+      -- Apply transparency and set colors
       vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
-      vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
-      vim.api.nvim_set_hl(0, "LineNr", { bg = "NONE" })
-      vim.api.nvim_set_hl(0, "SignColumn", { bg = "NONE" })
-      vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "NONE" })
-      vim.api.nvim_set_hl(0, "FidgetNormal", { bg = "NONE", fg = "#a9b1d6" })
-      -- Additional transparency settings
-      vim.api.nvim_set_hl(0, "StatusLine", { bg = "NONE" })
-      vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "NONE" })
-      vim.api.nvim_set_hl(0, "TabLine", { bg = "NONE" })
-      vim.api.nvim_set_hl(0, "TabLineSel", { bg = "NONE" })
-      vim.api.nvim_set_hl(0, "TabLineFill", { bg = "NONE" })
-      vim.api.nvim_set_hl(0, "Pmenu", { bg = "NONE" })
-      vim.api.nvim_set_hl(0, "PmenuSel", { bg = "NONE" })
-      vim.api.nvim_set_hl(0, "PmenuSbar", { bg = "NONE" })
-      vim.api.nvim_set_hl(0, "PmenuThumb", { bg = "NONE" })
-      vim.api.nvim_set_hl(0, "WinSeparator", { bg = "NONE" })
-      vim.api.nvim_set_hl(0, "VertSplit", { bg = "NONE" })
-      vim.api.nvim_set_hl(0, "FloatBorder", { bg = "NONE" })
-      vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "NONE" })
-      vim.api.nvim_set_hl(0, "TelescopeBorder", { bg = "NONE" })
-      vim.api.nvim_set_hl(0, "LspFloatWin", { bg = "NONE" })
-      vim.api.nvim_set_hl(0, "LspDiagnosticsVirtualTextError", { bg = "NONE" })
-      vim.api.nvim_set_hl(0, "LspDiagnosticsVirtualTextWarning", { bg = "NONE" })
-      vim.api.nvim_set_hl(0, "LspDiagnosticsVirtualTextInfo", { bg = "NONE" })
-      vim.api.nvim_set_hl(0, "LspDiagnosticsVirtualTextHint", { bg = "NONE" })
+      -- [Your other transparency settings here]
 
-      vim.cmd[[colorscheme tokyonight]] -- Activate colorscheme
-    end,
+      vim.cmd[[colorscheme tokyonight]] -- Activate the colorscheme
+    end
   },
-{
+  {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
     ---@module "ibl"
-    ---@type ibl.config
     opts = {},
-},
+  },
 
   -- Load other plugins
   require 'plugins.bufferline',
