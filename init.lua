@@ -14,6 +14,15 @@ vim.opt.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50"
 -- Load custom autocommands
 require 'core.autocmd' -- Add this line to load autocmd.lua
 
+-- Turns off LSP on certain files
+vim.api.nvim_create_autocmd("BufReadPost", {
+    pattern = { "*.txt", "*.md" },
+    callback = function()
+        vim.cmd("LspStop")
+    end,
+})
+
+
 -- Install package manager
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
@@ -62,7 +71,9 @@ require('lazy').setup({
   -- require 'plugins.none-ls',
   require 'plugins.lualine',
   require 'plugins.neo-tree',
+  require 'plugins.render-markdown',
   -- require 'plugins.alpha',
+
 
   -- require 'plugins.debug',
   -- require 'plugins.gitsigns',
@@ -109,6 +120,14 @@ local function file_exists(file)
   end
 end
 
+-- No spelling on MD files
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "markdown",
+    callback = function()
+        vim.opt_local.spell = false
+    end,
+})
+
 -- Path to the session file
 local session_file = '.session.vim'
 
@@ -127,3 +146,6 @@ vim.cmd([[
   command! BuildJar execute '!javac -d bin $(find src -name "*.java") && jar cfe demo.jar $(basename $(find src -name "Main.java" | sed "s/\\.java$//")) -C bin .'
 ]])
 
+vim.cmd([[
+  command! BuildJar2 execute '!javac -d bin -cp "$(find lib -name "*.jar" | tr "\\n" ":")" $(find src -name "*.java") && jar cfe demo.jar $(basename $(find src -name "Main.java" | sed "s/\\.java$//")) -C bin . -C lib .'
+]])

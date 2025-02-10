@@ -103,8 +103,13 @@ vim.keymap.set('n', '<leader>q', ':q<CR>', { noremap = true, silent = false, des
 --CUSTOM KEYS
 vim.opt.laststatus = 0
 vim.api.nvim_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<Ctrl>b','BuildJar<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Ctrl>b','BuildJar<CR>', { noremap = true })
+vim.keymap.set('n', '<leader>rr', ':set wrap!<CR>', { noremap = true, silent = true })
 
-
-
-
+-- CODE ACTIONS
+--map("n", "<leader>ca", vim.lsp.buf.code_action, opts(_opts, "Code action")) 
+--if vim.lsp.buf.range_code_action then
+--    map("v", "<leader>ca", vim.lsp.buf.range_code_action, opts(_opts, "Code action (range)"))    
+--else      
+--    map("v", "<leader>ca", vim.lsp.buf.code_action, opts(_opts, "Code action"))    
+--end
